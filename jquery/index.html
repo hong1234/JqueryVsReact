@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+    <link rel="stylesheet" href="table.css">
+    <script type="text/javascript" src="jquery/jquery-3.4.0.min.js"></script>
+    <script src="usertable.js"></script>
+</head>
+<body>
+    <div id="app">   
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "https://jsonplaceholder.typicode.com/users";
+            userTableModule.init(url);   
+        });
+    </script>
+</body>
+
+</html>
