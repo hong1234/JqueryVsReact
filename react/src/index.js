@@ -1,13 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App.js';
+import './style.scss';
 
-import DataHOC from './DataHOC.js';
-import UserTable from './UserTable.js';
-
-import './style.css';
-
-const URL_TO_DATA = "https://jsonplaceholder.typicode.com/users";
-
-const UserTableWithData = DataHOC(URL_TO_DATA)(UserTable)
-
-ReactDOM.render(<UserTableWithData />, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));

@@ -1,14 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
-const DataHOC = url =>  WrappedComponent =>
+const DataHOC = url => WrappedComponent =>
       class extends React.Component {
 
          constructor(props) {
              super(props);
-             this.state = { 
-                 data: [] 
-             };
+             this.state = { data: [] };
+
              this.loadData = this.loadData.bind(this);
              this.resetData = this.resetData.bind(this);
           }
@@ -22,22 +21,25 @@ const DataHOC = url =>  WrappedComponent =>
           }
           
           resetData() {
-              this.setState({
-                  data: []
-              });
+              this.setState({ data: [] });
           }
 
           render() { 
+   
+              let button = <button onClick = {this.loadData}>LOAD DATA</button>;
+              let content = <div></div>;
              
+              if (this.state.data.length > 0) {
+                 button = <button onClick = {this.resetData}>RESET DATA</button>;
+                 content = <WrappedComponent {...this.state} />;  
+              }     
+          
               return (   
                 <div>
-                  <WrappedComponent {...this.state} loadData={this.loadData} resetData={this.resetData} />
-                </div>
-              )
-
-              
+                  {button}
+                  {content}
+                </div>)           
           }
-
       }
 
 export default DataHOC
