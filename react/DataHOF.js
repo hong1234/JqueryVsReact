@@ -7,20 +7,22 @@ const DataHOF = (url, WrappedComponent) =>
          constructor(props) {
              super(props);
              this.state = { data: [] };
-
              this.loadData = this.loadData.bind(this);
-             this.resetData = this.resetData.bind(this);
+             
           }
 
           loadData() {
               axios.get(url)
-                   .then(res => {
-                       const data = res.data;
-                       this.setState({ data });
-              })
+                   .then(res => { 
+                       this.setState({ data: res.data });
+                    })
+                   .catch(error => {
+      		       console.log(error)
+    	            })
+          
           }
           
-          resetData() {
+          resetData = () => {
               this.setState({ data: [] });
           }
 
