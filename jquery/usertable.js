@@ -1,20 +1,20 @@
 var userTableModule = (function($) {
 
-    function init(url) {
-        $("#reset_button").remove();
-        $("#app").append('<button id="load_button">LOAD DATA</button>');
-        $('#load_button').on('click', function() {
-                reset(url);          
+    function initTab(url) {
+        $("#unsetButton").remove();
+        $("#app").append('<button id="loadButton">LOAD DATA</button>');
+        $('#loadButton').on('click', function() {
+                unsetTab(url);          
                 userTable(url);      
         });
     }
 
-    function reset(url) {
-        $("#load_button").remove();
-        $("#app").append('<button id="reset_button">RESET DATA</button>');
-        $('#reset_button').on('click', function() {
+    function unsetTab(url) {
+        $("#loadButton").remove();
+        $("#app").append('<button id="unsetButton">UNSET DATA</button>');
+        $('#unsetButton').on('click', function() {
                 $("#tab").remove();
-                init(url);
+                initTab(url);
         });
     }
 
@@ -28,9 +28,6 @@ var userTableModule = (function($) {
     }
 
     return {
-        init: init,
-        //initUserTable: function() {
-        //    initUserTable();
-        //},
+        init: initTab,
     };
 })(jQuery)
