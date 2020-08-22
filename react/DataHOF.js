@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const DataHOC = url => WrappedComponent =>
+const DataHOF = (url, WrappedComponent) =>
       class extends React.Component {
 
          constructor(props) {
@@ -30,7 +30,7 @@ const DataHOC = url => WrappedComponent =>
               let content = <div></div>;
              
               if (this.state.data.length > 0) {
-                 button = <button onClick = {this.resetData}>RESET DATA</button>;
+                 button = <button onClick = {this.resetData}>UNSET DATA</button>;
                  content = <WrappedComponent {...this.state} />;  
               }     
           
@@ -42,4 +42,4 @@ const DataHOC = url => WrappedComponent =>
           }
       }
 
-export default DataHOC
+export default DataHOF
