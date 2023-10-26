@@ -4,8 +4,8 @@ cd JqueryVsReact
 
 php -S localhost:3000
 
-http://localhost:3000/react/index.html
+http://localhost:3000/reactHook/dist/index.html
 
-http://localhost:3000/reactHooks/index.html
+http://localhost:3000/react/index.html
 
 http://localhost:3000/jquery/index.html
